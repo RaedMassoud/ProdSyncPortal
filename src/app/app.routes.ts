@@ -4,6 +4,7 @@ import { Layout } from './layout/layout';
 import { Items } from './items/items';
 import { Suppliers } from './suppliers/suppliers';
 import { Products } from './products/products';
+import { ProductForm } from './products/product-form/product-form';
 
 export const routes: Routes = [
   {
@@ -12,7 +13,12 @@ export const routes: Routes = [
     children: [
       { path: 'items', component: Items },
       { path: 'suppliers', component: Suppliers },
+
+      // Products route
       { path: 'products', component: Products },
+      { path: 'products/create', component: ProductForm },
+      { path: 'products/:id/edit', component: ProductForm },
+
       { path: '', redirectTo: 'items', pathMatch: 'full' }
     ]
   }

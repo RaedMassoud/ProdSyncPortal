@@ -1,0 +1,79 @@
+// PAGE HEADER (PRODUCTS)
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 20px 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  .header-content {
+    .page-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .page-subtitle {
+      margin: 5px 0 0 0px;
+      color: #6b7280;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  .add-button {
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: #6b7280;               // grey button
+    color: white !important;
+
+    &:hover {
+      background: #4b5563;
+      transform: none;
+      box-shadow: none;
+    }
+
+    mat-icon {
+      margin-right: 6px;
+    }
+  }
+}
+
+/* FORM PAGE LAYOUT */
+.form-page {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   // 3 fields per row
+    gap: 24px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .form-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    button {
+      height: 44px;
+    }
+  }
+}

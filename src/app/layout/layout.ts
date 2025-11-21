@@ -1,22 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-  ],
+  imports: [SharedModule],
   templateUrl: './layout.html',
-  styleUrls: ['./layout.scss'],
 })
 export class Layout {
 

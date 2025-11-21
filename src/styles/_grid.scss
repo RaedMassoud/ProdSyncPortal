@@ -1,0 +1,93 @@
+// TABLE CONTAINER WRAPPER
+.table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  .modern-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    // HEADER CELLS
+    th {
+      text-align: center;
+      vertical-align: middle;
+      background: #f9fafb;
+      color: #374151;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 6px 4px;
+      border-bottom: 1px solid #e5e7eb;
+      white-space: nowrap;
+    }
+
+    // DATA CELLS
+    td {
+      padding: 6px 4px;
+      font-size: 13px;
+      color: #374151;
+      border-bottom: 1px solid #f3f4f6;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    // Remove any bold or colored cells
+    .name-cell,
+    .price-cell,
+    .stock-badge {
+      font-weight: 400 !important;
+      color: #374151 !important;
+      background: transparent !important;
+      padding: 0 !important;
+    }
+
+    // Remove stock badge styling completely
+    .stock-badge {
+      display: inline;
+      border-radius: 0;
+    }
+
+    // Minimal action buttons
+    button {
+      color: #6b7280;
+      transition: none;
+
+      &:hover {
+        color: #111827;
+        transform: none;
+      }
+    }
+  }
+}
+
+// REMOVE MATERIAL TABLE EXTRA PADDING
+mat-header-row,
+mat-row {
+  padding: 0 !important;
+}
+
+mat-header-cell,
+mat-cell {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+// Remove extra padding inside table wrapper
+.mat-mdc-table {
+  padding: 0 !important;
+}
+
+// REMOVE RIPPLE + HOVER CIRCLES FROM ICON BUTTONS
+.mat-mdc-button-ripple,
+.mdc-icon-button__ripple,
+.mat-mdc-focus-indicator {
+  display: none !important;
+}
+
+button[mat-icon-button] {
+  --mat-ripple-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}

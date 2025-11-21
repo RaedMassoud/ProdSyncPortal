@@ -1,33 +1,20 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ApiService } from '../core/api';
-import { MatTableModule } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { ProductDialog } from './product-dialog/product-dialog';
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { SharedModule } from '../shared/shared.module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [
-    CommonModule, MatTableModule, MatButtonModule, MatIconModule, MatTooltipModule, MatDialogModule,
-    FormsModule,MatFormFieldModule,MatSelectModule
-  ],
+  imports: [SharedModule],
   templateUrl: './products.html',
-  styleUrl: './products.scss',
 })
 export class Products {
 
   products: any[] = [];
-  displayedColumns = ['name', 'altName', 'serialNumber', 'price', 'stockQuantity', 'actions'];
+  displayedColumns = ['name', 'altName', 'serialNumber', 'price', 'stockQuantity', 'edit', 'delete'];
 
-  constructor(private api: ApiService, private dialog: MatDialog) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.loadProducts();
@@ -37,37 +24,18 @@ export class Products {
     this.api.get('/product')
       .subscribe((res: any) => {
         const data = res as any;
-        this.products = Array.isArray(data) ? data : (data?.data ?? data?.content ?? data?.items ?? []);
+        this.products = Array.isArray(data)
+          ? data 
+          : (data?.data ?? data?.content ?? data?.items ?? []);
       });
   }
 
-  openCreateDialog() {
-    const ref = this.dialog.open(ProductDialog, {
-      width: '500px'
-    });
-
-    ref.afterClosed().subscribe(result => {
-      if (result) {
-        this.api.post('/product', result).subscribe(() => {
-          this.loadProducts();
-        });
-      }
-    });
+  goToCreate() {
+    this.router.navigate(['/products/create']);
   }
 
-  openEditDialog(product: any) {
-    const ref = this.dialog.open(ProductDialog, {
-      width: '500px',
-      data: product
-    });
-
-    ref.afterClosed().subscribe(result => {
-      if (result) {
-        this.api.put(`/product`, result).subscribe(() => {
-          this.loadProducts();
-        });
-      }
-    });
+  goToEdit(product: any) {
+    this.router.navigate(['/products', product.id, 'edit']);
   }
 
   deleteProduct(product: any) {

@@ -70,25 +70,26 @@ export class ItemForm {
 
     if (this.editingId) {
       this.api.put('/item', payload).subscribe(() => {
-        this.router.navigate(['/items']);
+        // this.router.navigate(['/items']); NOT WORKING
       });
     } else {
       this.api.post('/item', payload).subscribe(() => {
-        this.router.navigate(['/items']);
+        // this.router.navigate(['/items']); NOT WORKING
       });
+    }
+    this.router.navigate(['/items']);
+  }
+
+  onSupplierSelect(event: any) {
+    const item = Array.isArray(event) ? event[0] : event;
+    if (item && item.id != null) {
+      this.itemForm.patchValue({ supplierId: item.id });
     }
   }
 
-  onSupplierSelect(item: any) {
-    this.itemForm.patchValue({
-      supplierId: item.id,
-    });
-  }
-
   onSupplierClear() {
-    this.itemForm.patchValue({
-      supplierId: null,
-    });
+    this.itemForm.patchValue({ supplierId: null });
+    this.selectedSupplier = [];
   }
 
   ngOnDestroy() {

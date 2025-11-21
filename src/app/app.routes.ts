@@ -23,7 +23,7 @@ export const routes: Routes = [
       { path: 'products/create', component: ProductForm },
       { path: 'products/:id/edit', component: ProductForm },
 
-      { path: '', redirectTo: 'items', pathMatch: 'full' }
+      // { path: '', redirectTo: 'items', pathMatch: 'full' }
     ]
   }
 ];

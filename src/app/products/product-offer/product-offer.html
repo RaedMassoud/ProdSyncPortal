@@ -1,23 +1,25 @@
-<div class="page-header">
-  <div class="header-content">
-    <h1 class="page-title">Offers</h1>
-    <p class="page-subtitle">Manage your product offers</p>
-  </div>
-  <button mat-raised-button (click)="goToCreate()" class="add-button">Add Offer</button>
-</div>
+<div class ="page-header-2 both">
+  <!-- Page Navigation Bubble -->
+  <div class="page-nav-bubble">
+    <div class="nav-item"
+      [class.active]="activeTab === 'setup'"
+      (click)="goToTab('setup')">
+      Setup
+    </div>
 
-<!-- Page Navigation Bubble -->
-<div class="page-nav-bubble">
-  <div class="nav-item" 
-    [class.active]="activeTab === 'setup'"
-    (click)="goToTab('setup')">
-    Setup
+    <div class="nav-item" 
+      [class.active]="activeTab === 'offers'"
+      (click)="goToTab('offers')">
+      Offers
+    </div>
   </div>
 
-  <div class="nav-item" 
-    [class.active]="activeTab === 'offers'"
-    (click)="goToTab('offers')">
-    Offers
+  <!-- Page Actions Bubble -->
+  <div class="page-nav-bubble actions">
+    <div class="action-item" 
+      (click)="goToCreate()">
+      Add Offer
+    </div>
   </div>
 </div>
 

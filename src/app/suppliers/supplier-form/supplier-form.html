@@ -1,11 +1,11 @@
 <div class="page-header">
   <div class="header-content">
     <h1 class="page-title">{{ title }}</h1>
-    <p class="page-subtitle">Add a new supplier</p>
   </div>
 </div>
 
 <div class="form-page">
+  <h2 class="section-title-main">Basic Info</h2>
   <form [formGroup]="supplierForm" class="form-grid">
 
     <div class="field-group">
@@ -30,11 +30,11 @@
     </div>
 
   </form>
+</div>
 
-  <div class="form-actions">
-    <button mat-button routerLink="/suppliers">Cancel</button>
-    <button mat-flat-button color="primary" (click)="save()" [disabled]="supplierForm.invalid">
-      Save
-    </button>
-  </div>
+<div class="form-actions">
+  <button mat-button routerLink="/suppliers">Cancel</button>
+  <button mat-flat-button color="primary" (click)="save()" [disabled]="supplierForm.invalid">
+    Save
+  </button>
 </div>

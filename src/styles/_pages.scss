@@ -1,12 +1,30 @@
 // PAGE HEADER (PRODUCTS)
+.page-header-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 0;
+}
+
+.page-header-2.only-actions {
+  justify-content: flex-end;
+}
+
+.page-header-2.only-nav {
+  justify-content: flex-start;
+}
+
+.page-header-2.both {
+  justify-content: space-between;
+}
+
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
+  padding: 15px 19px;
   background: white;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 
   .header-content {
     display: flex;
@@ -48,7 +66,6 @@
     background: #2563eb;
     color: #000000 !important;
     letter-spacing: .3px;
-    box-shadow: 0 2px 6px rgba(37,99,235,.3);
     transition:box-shadow .15s ease;
 
     mat-icon {
@@ -63,7 +80,6 @@
   padding: 24px;
   margin: 15px 0px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 
   .form-grid {
     display: grid;
@@ -165,7 +181,6 @@
       font-weight: 600;
       color: #000000 !important;
       letter-spacing: .3px;
-      box-shadow: 0 2px 6px rgba(37,99,235,.3);
       transition:box-shadow .15s ease;
 
       mat-icon {
@@ -188,6 +203,20 @@
 
   .item-row .mat-mdc-form-field-subscript-wrapper {
     display: none !important;
+  }
+
+  .section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0px 0 0px 0;
+  }
+
+  .section-title-main {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0px 0 25px 0;
   }
 }
 

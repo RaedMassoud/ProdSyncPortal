@@ -1,12 +1,13 @@
-<div class="page-header">
-  <div class="header-content">
-    <h1 class="page-title">Items</h1>
-    <p class="page-subtitle">Manage your item inventory</p>
+<div class ="page-header-2 only-actions">
+  <!-- Page Actions Bubble -->
+  <div class="page-nav-bubble actions">
+    <div class="action-item" 
+      (click)="goToCreate()">
+      Add Item
+    </div>
   </div>
-  <button mat-raised-button (click)="goToCreate()" class="add-button">
-    Add Item
-  </button>
 </div>
+
 
 <div class="table-container">
   <table mat-table [dataSource]="items" class="modern-table">

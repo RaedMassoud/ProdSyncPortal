@@ -1,0 +1,77 @@
+<div class="page-header">
+  <div class="header-content">
+    <h1 class="page-title">Offers</h1>
+    <p class="page-subtitle">Manage your product offers</p>
+  </div>
+  <button mat-raised-button (click)="goToCreate()" class="add-button">Add Offer</button>
+</div>
+
+<!-- Page Navigation Bubble -->
+<div class="page-nav-bubble">
+  <div class="nav-item" 
+    [class.active]="activeTab === 'setup'"
+    (click)="goToTab('setup')">
+    Setup
+  </div>
+
+  <div class="nav-item" 
+    [class.active]="activeTab === 'offers'"
+    (click)="goToTab('offers')">
+    Offers
+  </div>
+</div>
+
+<!-- Offers Grid -->
+<div class="table-container">
+  <table mat-table [dataSource]="offers" class="modern-table">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let p" class="name-cell">{{ p.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let o">{{ o.product.name }}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let o">{{ o.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="sellingPrice">
+      <th mat-header-cell *matHeaderCellDef>Selling Price</th>
+      <td mat-cell *matCellDef="let o">{{ o.sellingPrice }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="targetCAC">
+      <th mat-header-cell *matHeaderCellDef>Target CAC</th>
+      <td mat-cell *matCellDef="let o">{{ o.targetCAC }}</td>
+    </ng-container>
+
+    <!-- EDIT COLUMN -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let o">
+        <button mat-icon-button (click)="goToEdit(o)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- DELETE COLUMN -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let o">
+        <button mat-icon-button (click)="deleteItem(o)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>

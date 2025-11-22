@@ -14,6 +14,8 @@ export class Products {
   products: any[] = [];
   displayedColumns = ['name', 'altName', 'serialNumber', 'price', 'stockQuantity', 'edit', 'delete'];
 
+  activeTab = 'setup';
+
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
@@ -48,6 +50,16 @@ export class Products {
 
   onRowClick(product: any) {
     this.router.navigate(['/products', product.id, 'cogs']);
+  }
+
+  goToTab(tab: string) {
+    this.activeTab = tab;
+
+    if (tab === 'setup')
+      this.router.navigate(['/products']);
+
+    if (tab === 'offers')
+      this.router.navigate(['/offers']);
   }
 
   ngOnDestroy() {

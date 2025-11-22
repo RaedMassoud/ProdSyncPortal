@@ -6,6 +6,21 @@
   <button mat-raised-button (click)="goToCreate()" class="add-button">Add Product</button>
 </div>
 
+<!-- Page Navigation Bubble -->
+<div class="page-nav-bubble">
+  <div class="nav-item" 
+    [class.active]="activeTab === 'setup'"
+    (click)="goToTab('setup')">
+    Setup
+  </div>
+
+  <div class="nav-item" 
+    [class.active]="activeTab === 'offers'"
+    (click)="goToTab('offers')">
+    Offers
+  </div>
+</div>
+
 <div class="table-container">
   <table mat-table [dataSource]="products" class="modern-table">
 

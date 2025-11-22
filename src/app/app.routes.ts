@@ -26,7 +26,26 @@ export const routes: Routes = [
       { path: 'products', component: Products },
       { path: 'products/create', component: ProductForm },
       { path: 'products/:id/edit', component: ProductForm },
-      { path: 'products/:id/cogs', component: ProductCogs },
+      {
+        path: 'products/:id/cogs',
+        loadComponent: () => import('./products/product-cogs/product-cogs')
+        .then(m => m.ProductCogs)
+      },
+      {
+        path: 'offers',
+        loadComponent: () => import('./products/product-offer/product-offer')
+        .then(m => m.ProductOffer)
+      },
+      {
+        path: 'offers/create',
+        loadComponent: () => import('./products/product-offer/product-offer-form/product-offer-form')
+        .then(m => m.ProductOfferForm)
+      },
+      {
+        path: 'offers/:id/edit',
+        loadComponent: () => import('./products/product-offer/product-offer-form/product-offer-form')
+        .then(m => m.ProductOfferForm)
+      },
 
       // { path: '', redirectTo: 'items', pathMatch: 'full' }
     ]

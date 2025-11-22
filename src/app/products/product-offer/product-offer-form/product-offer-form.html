@@ -1,0 +1,59 @@
+<div class="page-header">
+  <div class="header-content">
+    <h1 class="page-title">{{ title }}</h1>
+    <p class="page-subtitle">Add a new offer</p>
+  </div>
+</div>
+
+<div class="form-page">
+  <form [formGroup]="productOfferForm" class="form-grid">
+
+    <div class="field-group">
+      <label class="field-label">Name</label>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="name">
+      </mat-form-field>
+    </div>
+
+    <div class="field-group">
+        <label class="field-label">Product</label>
+        <div class="form-field">
+            <angular2-multiselect 
+                name="productDropDown" [data]="products" [(ngModel)]="selectedProduct" [ngModelOptions]="{standalone: true}"
+                [settings]="{singleSelection: true, text:'Select Product', primaryKey: 'id', labelKey: 'name', badgeShowLimit: 1}" 
+                (onSelect)="onProductSelect($event)"
+                (onDeSelect)="onProductClear()">
+            </angular2-multiselect>
+        </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Quantity</label>
+      <mat-form-field appearance="outline">
+        <input matInput type="number" formControlName="quantity">
+      </mat-form-field>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Selling Price</label>
+      <mat-form-field appearance="outline">
+        <input matInput type="number" formControlName="sellingPrice">
+      </mat-form-field>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Target CAC</label>
+      <mat-form-field appearance="outline">
+        <input matInput type="number" formControlName="targetCAC">
+      </mat-form-field>
+    </div>
+
+  </form>
+</div>
+
+<div class="form-actions">
+  <button mat-button routerLink="/offers">Cancel</button>
+  <button mat-flat-button color="primary" (click)="save()" [disabled]="productOfferForm.invalid">
+    Save
+  </button>
+</div>

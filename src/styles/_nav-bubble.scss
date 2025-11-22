@@ -1,0 +1,28 @@
+.page-nav-bubble {
+  background: white;
+  padding: 12px 20px;
+  margin: 15px 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+  display: inline-flex;
+  gap: 25px;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 600;
+  color: #4b5563;
+  cursor: pointer;
+  padding-bottom: 4px;
+  transition: color .15s ease;
+}
+
+.nav-item:hover {
+  color: #111827;
+}
+
+.nav-item.active {
+  color: #111827;
+  border-bottom: 2px solid #111827;
+}
